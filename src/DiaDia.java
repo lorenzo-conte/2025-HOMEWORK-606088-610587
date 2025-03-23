@@ -36,27 +36,23 @@ public class DiaDia {
 
 	public void gioca() {
 		String istruzione; 
-		Scanner scannerDiLinee;
+	
 
 		System.out.println(MESSAGGIO_BENVENUTO);
-		scannerDiLinee = new Scanner(System.in);		
+		Scanner scannerDiLinee = new Scanner(System.in);		
 		do		
 			istruzione = scannerDiLinee.nextLine();
 		while (!processaIstruzione(istruzione));
 	}   
 
 
-	/**
-	 * Processa una istruzione 
-	 *
-	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
-	 */
+	
 	private boolean processaIstruzione(String istruzione) {
 		Comando comandoDaEseguire = new Comando(istruzione);
 
 		if (comandoDaEseguire.getNome().equals("fine")) {
-			this.fine(); 
-			return true;
+			this.fine();
+			System.exit(0);
 		} else if (comandoDaEseguire.getNome().equals("vai"))
 			this.vai(comandoDaEseguire.getParametro());
 		else if (comandoDaEseguire.getNome().equals("aiuto"))
@@ -76,8 +72,9 @@ public class DiaDia {
 	 * Stampa informazioni di aiuto.
 	 */
 	private void aiuto() {
+		System.out.println("Capisco, hai un vuoto di memoria, ti aiuto a ricordare i comandi:");
 		for(int i=0; i< elencoComandi.length; i++) 
-			System.out.print(elencoComandi[i]+" ");
+			System.out.print("["+ elencoComandi[i]+"] ");
 		System.out.println();
 	}
 
@@ -86,25 +83,27 @@ public class DiaDia {
 	 * e ne stampa il nome, altrimenti stampa un messaggio di errore
 	 */
 	private void vai(String direzione) {
-		if(direzione==null)
+		if(direzione==null) {
 			System.out.println("Dove vuoi andare ?");
-		Stanza prossimaStanza = null;
-		prossimaStanza = this.partita.getStanzaCorrente().getStanzaAdiacente(direzione);
-		if (prossimaStanza == null)
+			return;
+		}
+		Stanza prossimaStanza = this.partita.getStanzaCorrente().getStanzaAdiacente(direzione);
+		if (prossimaStanza == null) {
 			System.out.println("Direzione inesistente");
+			return;
+		}
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
 			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu--);
+			this.partita.setCfu(cfu-1);
 		}
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 
-	/**
-	 * Comando "Fine".
-	 */
+
 	private void fine() {
 		System.out.println("Grazie di aver giocato!");  // si desidera smettere
+		System.exit(0);
 	}
 
 	public static void main(String[] argc) {
