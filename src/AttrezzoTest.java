@@ -2,11 +2,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class PartitaTest {
+class AttrezzoTest {
 
 	@Test
-	void testPippo() {
-		var prova = new Partita();
+	void test() {
+		fail("Not yet implemented");
 	}
 
 }

@@ -6,7 +6,7 @@ class StanzaTest {
 
 	@Test
 	void PrimaStanzaNord () {
-		var pippo = new Stanza();
+		var pippo = new Stanza("");
 	}
 
 }
