@@ -5,8 +5,12 @@ import org.junit.jupiter.api.Test;
 class PartitaTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testcfu() {
+		
+		assertEquals(20, new Partita().getCfu());
+				
 	}
+	
+	
 
 }
