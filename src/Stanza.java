@@ -79,7 +79,7 @@ public class Stanza {
 	}
 
     /**
-     * Restituisce la nome della stanza.
+     * Restituisce il nome della stanza.
      * @return il nome della stanza
      */
     public String getNome() {
