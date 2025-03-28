@@ -19,7 +19,7 @@ class StanzaTest {
 	void SetUp(){
 		newStanza = new Stanza("Aula N3");
 		Partita partita = new Partita();
-		atrio= partita.getStanzaCorrente();
+		atrio= partita.getLabirinto().getStanzaCorrente();
 		
 		
 		Attrezzo bomba = new Attrezzo("bomba", 15);
@@ -170,7 +170,7 @@ class StanzaTest {
 	@Test
 	void TestDirezioneOvestAtrio () {
 	    Partita partita = new Partita();
-		Stanza atrio= partita.getStanzaCorrente();
+		Stanza atrio= partita.getLabirinto().getStanzaCorrente();
 		
 		
 		assertEquals("Laboratorio Campus" ,atrio.getStanzaAdiacente("ovest").getNome());

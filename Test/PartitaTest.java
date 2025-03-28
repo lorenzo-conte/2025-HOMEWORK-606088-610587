@@ -16,7 +16,7 @@ class PartitaTest {
 	@Test
 	void testGetStanzaVincente() {
 		
-		assertEquals("Biblioteca", new Partita().getStanzaVincente().getNome());
+		assertEquals("Biblioteca", new Partita().getLabirinto().getStanzaVincente().getNome());
 				
 	}
 	
@@ -25,7 +25,7 @@ class PartitaTest {
 	@Test
 	void testGetStanzaCorrente() {
 		
-		assertEquals("Atrio", new Partita().getStanzaCorrente().getNome());
+		assertEquals("Atrio", new Partita().getLabirinto().getStanzaCorrente().getNome());
 				
 	}	
 	
@@ -41,9 +41,9 @@ class PartitaTest {
         Partita partita = new Partita();
         Stanza nuovaStanza = new Stanza("Laboratorio"); 
         
-        partita.setStanzaCorrente(nuovaStanza); 
+        partita.getLabirinto().setStanzaCorrente(nuovaStanza); 
         
-        assertEquals("Laboratorio", partita.getStanzaCorrente().getNome()); 
+        assertEquals("Laboratorio", partita.getLabirinto().getStanzaCorrente().getNome()); 
     
 	}
 	

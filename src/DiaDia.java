@@ -87,17 +87,17 @@ public class DiaDia {
 			System.out.println("Dove vuoi andare ?");
 			return;
 		}
-		Stanza prossimaStanza = this.partita.getStanzaCorrente().getStanzaAdiacente(direzione);
+		Stanza prossimaStanza = this.partita.getLabirinto().getStanzaCorrente().getStanzaAdiacente(direzione);
 		if (prossimaStanza == null) {
 			System.out.println("Direzione inesistente");
 			return;
 		}
 		else {
-			this.partita.setStanzaCorrente(prossimaStanza);
+			this.partita.getLabirinto().setStanzaCorrente(prossimaStanza);
 			int cfu = this.partita.getCfu();
 			this.partita.setCfu(cfu-1);
 		}
-		System.out.println(partita.getStanzaCorrente().getDescrizione());
+		System.out.println(partita.getLabirinto().getStanzaCorrente().getDescrizione());
 	}
 
 
