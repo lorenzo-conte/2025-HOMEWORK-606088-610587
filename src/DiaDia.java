@@ -27,11 +27,12 @@ public class DiaDia {
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
 	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
-
+	private Giocatore giocatore;
 	private Partita partita;
 
 	public DiaDia() {
 		this.partita = new Partita();
+		this.giocatore= new Giocatore();
 	}
 
 	public void gioca() {
@@ -94,8 +95,8 @@ public class DiaDia {
 		}
 		else {
 			this.partita.getLabirinto().setStanzaCorrente(prossimaStanza);
-			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu-1);
+			int cfu = this.giocatore.getCfu();
+			this.giocatore.setCfu(cfu-1);
 		}
 		System.out.println(partita.getLabirinto().getStanzaCorrente().getDescrizione());
 	}
