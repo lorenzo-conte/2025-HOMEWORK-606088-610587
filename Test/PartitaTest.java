@@ -8,7 +8,7 @@ class PartitaTest {
 	@Test
 	void testcfu() {
 		
-		assertEquals(20, new Partita().getCfu());
+		assertEquals(20, new Partita().giocatore.getCfu());
 				
 	}
 	
