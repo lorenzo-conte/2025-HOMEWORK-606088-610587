@@ -4,6 +4,12 @@ public class Giocatore {
 	static final private int CFU_INIZIALI = 20;
 	private int cfu;
 	
+	private Borsa borsa = new Borsa();
+
+	public Borsa getBorsa() {
+	    return this.borsa;
+	}
+	
 	public void CreaCFU() {
 		this.cfu= CFU_INIZIALI;
 	}

@@ -101,6 +101,10 @@ public class Stanza {
     public Attrezzo[] getAttrezzi() {
         return this.attrezzi;
     }
+    
+    public int getNumeroAttrezzi() {
+        return this.numeroAttrezzi;
+    }
 
     /**
      * Mette un attrezzo nella stanza.
@@ -108,12 +112,15 @@ public class Stanza {
      * @return true se riesce ad aggiungere l'attrezzo, false atrimenti.
      */
     public boolean addAttrezzo(Attrezzo attrezzo) {
+    	
         if (this.numeroAttrezzi < NUMERO_MASSIMO_ATTREZZI) {
         	this.attrezzi[numeroAttrezzi] = attrezzo;
         	this.numeroAttrezzi++;
+        	
         	return true;
         }
         else {
+        	
         	return false;
         }
     }
