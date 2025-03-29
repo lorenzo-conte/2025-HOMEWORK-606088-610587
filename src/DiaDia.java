@@ -132,46 +132,57 @@ public class DiaDia {
 	}
 	//PRENDI ATTREZZO
 	private boolean PrendiAttrezzo(String nomeAttrezzo) {
-	    Stanza corrente = this.partita.getLabirinto().getStanzaCorrente();
-	    Attrezzo[] attrezzi = corrente.getAttrezzi();
-	    Attrezzo attrezzo = null;
-
-	    for (int i = 0; i < attrezzi.length; i++) {
-	        if (attrezzi[i] != null && attrezzi[i].getNome().equals(nomeAttrezzo)) {
-	            attrezzo = attrezzi[i];
-	            break;
-	        }
-	    }
-
-	    if (attrezzo != null) {
-	        corrente.removeAttrezzo(attrezzo);
-	        this.partita.giocatore.getBorsa().addAttrezzo(attrezzo);
-	        return true;
-	    }
-
-	    return false;
+		Stanza corrente= this.partita.getLabirinto().getStanzaCorrente();
+		
+		//Siccome non modifichiamo getAttrezzo e facendo un classico this.giocatore.getborsa(nomeAttrezzo.getNome) potremmo incappare 
+		// in un NullPointerException perchè l'array di attrezzi ha dei nulli dentro, bisogna fare un ciclo con il quale prendere l 'elemento giusto se c'è
+		
+		
+		Attrezzo daPrendere = null;
+		Attrezzo attrezzi[] = corrente.getAttrezzi();
+		for(int i=0;i<10;i++) {
+			if(attrezzi[i]!=null && attrezzi[i].getNome().equals(nomeAttrezzo) ) {
+					daPrendere=attrezzi[i];
+					corrente.removeAttrezzo(daPrendere);
+					this.partita.giocatore.getBorsa().addAttrezzo(daPrendere);
+					return true;
+				}
+			}
+		
+		
+		
+		
+		
+		
+		return false;
+		
 	}
 
 	
 	private boolean PosaAttrezzo(String attrezzo) {
-	    Stanza corrente = this.partita.getLabirinto().getStanzaCorrente();
-	    Borsa sium = this.partita.giocatore.getBorsa();
-	    Attrezzo posare = sium.getAttrezzo(attrezzo);
-
-	    if (posare != null && corrente.getNumeroAttrezzi() < 10) {
-	        corrente.addAttrezzo(posare);
-	        sium.removeAttrezzo(posare.getNome());
-	        return true;
-	    }
-
-	    return false;
+		Stanza corrente = this.partita.getLabirinto().getStanzaCorrente();
+		Attrezzo daPosare = this.partita.giocatore.getBorsa().getAttrezzo(attrezzo);
+		
+		
+		if(daPosare!=null) {
+			if(corrente.getNumeroAttrezzi()<10) {
+				corrente.addAttrezzo(daPosare);
+				this.partita.giocatore.getBorsa().removeAttrezzo(daPosare.getNome());
+				
+				
+				
+			return true;	
+			}
+		}
+		return false;
+	    
 	}
 	
 	private void fine() {
-		System.out.println("Grazie di aver giocato!");  
-		System.exit(0);
+	    System.out.println("Grazie di aver giocato!");  // si desidera smettere
+	    System.exit(0);
 	}
-	
+
 	
 
 	public static void main(String[] argc) {
