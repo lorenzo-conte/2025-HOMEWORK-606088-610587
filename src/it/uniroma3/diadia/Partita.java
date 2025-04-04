@@ -44,9 +44,7 @@ public class Partita {
 	}
 	
 	
-	
-	
-	
+
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta
 	 * @return vero se partita vinta
