@@ -6,6 +6,11 @@ public class Giocatore {
 	private int cfu;
 	
 	private Borsa borsa = new Borsa();
+	
+	public Giocatore() {
+		this.cfu = CFU_INIZIALI;
+		this.borsa = new Borsa();
+	}
 
 	public Borsa getBorsa() {
 	    return this.borsa;
