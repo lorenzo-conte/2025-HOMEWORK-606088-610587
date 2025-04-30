@@ -56,9 +56,26 @@ public class DiaDia {
 			istruzione = io.leggiRiga();
 		while (!processaIstruzione(istruzione));
 	}   
-
-
 	
+	
+	private boolean processaIstruzione(String istruzione) {
+		
+		Comando comandoDaEseguire;
+		
+		FabbricaDiComandiFisarmonica factory = new FabbricaDiComandiFisarmonica();
+		comandoDaEseguire = factory.costruisciComando(istruzione);
+		comandoDaEseguire.esegui(this.partita);
+		
+		if (this.partita.vinta())
+		io.mostraMessaggio("Hai vinto!");
+		if (this.partita.isFinita())
+		io.mostraMessaggio("Partita finita");
+		
+		return this.partita.isFinita();
+	}
+
+
+	/*
 	private boolean processaIstruzione(String istruzione) {
 	    Comando comandoDaEseguire = new Comando(istruzione);
 
@@ -94,7 +111,7 @@ public class DiaDia {
 	                                                             /*aggiungo il toString() perchè in IOConsole si ha "public void mostraMessaggio(String msg)",
 	                                                              * ma io gli sto passando una Borsa, che non è una String; ciò che si fa in breve è convertire 
 	                                                              * Borsa in String
-*/
+
 
 	    } else {
 	    	io.mostraMessaggio("Comando sconosciuto");
@@ -109,11 +126,13 @@ public class DiaDia {
 	}
 
 
-	// implementazioni dei comandi dell'utente:
+	//implementazioni dei comandi dell'utente:
 
 	/**
 	 * Stampa informazioni di aiuto.
 	 */
+	
+	/*
 	private void aiuto() {
 		io.mostraMessaggio("Capisco, hai un vuoto di memoria, ti aiuto a ricordare i comandi:");
 		for(int i=0; i< elencoComandi.length; i++) 
@@ -126,7 +145,7 @@ public class DiaDia {
 	 * e ne stampa il nome, altrimenti stampa un messaggio di errore
 	 */
 	
-	
+	/*
 	private void vai(String direzione) {
 		if(direzione==null) {
 			io.mostraMessaggio("Dove vuoi andare ?");
@@ -185,7 +204,8 @@ public class DiaDia {
 		io.mostraMessaggio("Grazie di aver giocato!");  
 		System.exit(0);
 	}
-	
+
+	*/
 	
 
 	public static void main(String[] argc) {

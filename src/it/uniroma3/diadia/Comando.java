@@ -1,5 +1,6 @@
 package it.uniroma3.diadia;
 
+import it.uniroma3.diadia.Partita;
 
 
 import java.util.Scanner;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  * @author  docente di POO
  * @version base
  */
-
+/*
 public class Comando {
 
     private String nome;
@@ -44,4 +45,18 @@ public class Comando {
     public boolean sconosciuto() {
         return (this.nome == null);
     }
+}*/
+
+
+public interface Comando{
+	
+	public void esegui(Partita partita);
+	
+	void setParametro(String parametro);
+
+	String getParametro();
+	
+	public String getNome();
+	
+	
 }
