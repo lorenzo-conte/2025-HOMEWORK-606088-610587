@@ -21,6 +21,8 @@ public class Attrezzo {
 	 * @param nome il nome che identifica l'attrezzo
 	 * @param peso il peso dell'attrezzo
 	 */
+	 
+	
 	public Attrezzo(String nome, int peso) {
 		this.peso = peso;
 		this.nome = nome;
@@ -46,6 +48,7 @@ public class Attrezzo {
 	 * Restituisce una rappresentazione stringa di questo attrezzo
 	 * @return la rappresentazione stringa
 	 */
+	
 	public String toString() {
 		return this.getNome()+" ("+this.getPeso()+"kg)";
 	}

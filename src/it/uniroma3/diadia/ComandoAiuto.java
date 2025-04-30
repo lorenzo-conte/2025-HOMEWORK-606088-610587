@@ -9,9 +9,12 @@ public class ComandoAiuto implements Comando {
 
 	@Override
 	public void esegui(Partita partita) {
-		for(int i=0; i< ELENCO_COMANDI.length; i++) 
-			System.out.println(ELENCO_COMANDI[i]+" ");
-	}
+		System.out.println("Capisco, hai un vuoto di memoria, ti aiuto a ricordare i comandi:");
+		for(int i=0; i< ELENCO_COMANDI.length; i++) {
+			System.out.print("["+ELENCO_COMANDI[i]+"] ");
+			}
+		System.out.println();
+		}
 
 	@Override
 	public void setParametro(String parametro) {

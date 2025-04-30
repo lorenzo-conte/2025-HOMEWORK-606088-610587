@@ -15,9 +15,10 @@ public class ComandoPrendi implements Comando{
 	@Override
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
-		if(partita.getGiocatore().getBorsa().getPesoRimanente(a)) {
+		if(partita.getGiocatore().getBorsa().getPesoRimanente(a)==true) {
 			partita.getGiocatore().getBorsa().addAttrezzo(a);
 			partita.getLabirinto().getStanzaCorrente().removeAttrezzo(a);
+			System.out.println("Oggetto raccolto con successo!");
 		} 
 		else {
 			System.out.println("Attrezzo troppo pesante, non può entrare in borsa");
@@ -28,7 +29,7 @@ public class ComandoPrendi implements Comando{
 	
 	@Override
 	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
+		this.nomeAttrezzo=parametro;
 
 	}
 

@@ -14,9 +14,11 @@ public class ComandoPosa implements Comando{
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 
-		if(partita.getStanzaCorrente().getNumeroAttrezzi() > 0) {
+		if(partita.getStanzaCorrente().getNumeroAttrezzi()<=10) {
+			
 			partita.getLabirinto().getStanzaCorrente().addAttrezzo(a);
 			partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+			System.out.println("Oggetto posato con successo!");
 		}
 		else {
 			System.out.println("Non c'e' spazio nella stanza per poter inserire questo attrezzo!");
@@ -25,7 +27,7 @@ public class ComandoPosa implements Comando{
 
 	@Override
 	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
+		this.nomeAttrezzo=parametro;
 
 	}
 

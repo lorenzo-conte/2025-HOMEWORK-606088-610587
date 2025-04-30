@@ -1,8 +1,12 @@
 package it.uniroma3.diadia;
 
+import java.util.Arrays;
+
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.giocatore.Giocatore;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+
 
 public class ComandoVai implements Comando{
 	
@@ -26,7 +30,7 @@ public class ComandoVai implements Comando{
 		}
 
 		partita.setStanzaCorrente(prossimaStanza);
-		System.out.println(partita.getStanzaCorrente().getNome());
+		System.out.println(partita.getStanzaCorrente().getDescrizione());
 		partita.getGiocatore().setCfu(partita.getGiocatore().getCfu() - 1);
 	}
 	
