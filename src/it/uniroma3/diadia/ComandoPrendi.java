@@ -15,8 +15,12 @@ public class ComandoPrendi implements Comando{
 	@Override
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
-		if(partita.getGiocatore().getBorsa().getPesoRimanente(a)==true) {
-			partita.getGiocatore().getBorsa().addAttrezzo(a);
+		if (a == null) {
+			System.out.println("Attrezzo inesistente.");
+			return;
+		}
+		if( partita.getGiocatore().getBorsa().addAttrezzo(a)) {
+			
 			partita.getLabirinto().getStanzaCorrente().removeAttrezzo(a);
 			System.out.println("Oggetto raccolto con successo!");
 		} 

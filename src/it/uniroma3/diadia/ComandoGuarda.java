@@ -6,7 +6,7 @@ public class ComandoGuarda implements Comando{
 	public void esegui(Partita partita) {
 		System.out.print("\nAttualmente ti trovi in: ");
 		System.out.println(partita.getLabirinto().getStanzaCorrente().getDescrizione());
-		System.out.print("\nIn borsa hai:");
+		
 		System.out.println(partita.giocatore.getBorsa().toString());
 		System.out.println("Sei ancora in gioco! Ti rimangono "+partita.getGiocatore().getCfu()+"mosse");
 
