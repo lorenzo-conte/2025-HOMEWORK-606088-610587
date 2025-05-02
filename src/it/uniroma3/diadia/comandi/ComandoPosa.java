@@ -1,5 +1,6 @@
-package it.uniroma3.diadia;
+package it.uniroma3.diadia.comandi;
 
+import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
@@ -8,23 +9,26 @@ public class ComandoPosa implements Comando{
 	
 	private String nomeAttrezzo;
 	private final static String NOME = "posa";
-	
+	private IO io;
+	public ComandoPosa(IO io) {
+		this.io = io;
+	}
 	
 	@Override
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 		 if (a == null) {
-		        System.out.println("Attrezzo inesistente nella borsa.");
+			 io.mostraMessaggio("Attrezzo inesistente nella borsa.\n");
 		        return;
 		    }
 		if(partita.getStanzaCorrente().getNumeroAttrezzi()<=10) {
 			
 			partita.getLabirinto().getStanzaCorrente().addAttrezzo(a);
 			partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-			System.out.println("Oggetto posato con successo!");
+			io.mostraMessaggio("Oggetto posato con successo!\n");
 		}
 		else {
-			System.out.println("Non c'e' spazio nella stanza per poter inserire questo attrezzo!");
+			io.mostraMessaggio("Non c'e' spazio nella stanza per poter inserire questo attrezzo!\n");
 		}
 	}
 

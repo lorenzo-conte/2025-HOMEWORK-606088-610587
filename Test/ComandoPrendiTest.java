@@ -7,19 +7,22 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.uniroma3.diadia.ComandoPrendi;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.comandi.ComandoPrendi;
+import it.uniroma3.diadia.IO;
+import it.uniroma3.diadia.IOConsole;
 
 public class ComandoPrendiTest {
 	
-	
+	private IO io;
 	private Stanza atrio;
 	Partita partita = new Partita();
 	Stanza newStanza=new Stanza("Prova");
 	@Before
 	public void setUp() {
+		this.io= new IOConsole();
 	    partita = new Partita(); 
 	    atrio = partita.getLabirinto().getStanzaCorrente();
 
@@ -36,7 +39,7 @@ public class ComandoPrendiTest {
 	@Test
 	public void testRaccogliOggettoLamaInAtrio() {
 		
-		ComandoPrendi comando = new ComandoPrendi();
+		ComandoPrendi comando = new ComandoPrendi(io);
 		comando.setParametro("lama");
 		comando.esegui(partita);
 		assertEquals("lama", partita.getGiocatore().getBorsa().getAttrezzo("lama").getNome());
@@ -48,7 +51,7 @@ public class ComandoPrendiTest {
 	@Test
 	public void testRaccogliOggettiCacciaviteAtrio() {
 		
-		ComandoPrendi comando = new ComandoPrendi();
+		ComandoPrendi comando = new ComandoPrendi(io);
 		comando.setParametro("cacciavite");
 		comando.esegui(partita);
 		assertEquals("cacciavite", partita.getGiocatore().getBorsa().getAttrezzo("cacciavite").getNome());
@@ -58,7 +61,7 @@ public class ComandoPrendiTest {
 	public void testRaccogliOggettoPinza() {
 	    partita.getLabirinto().setStanzaCorrente(newStanza);
 	    
-	    ComandoPrendi comando = new ComandoPrendi();
+	    ComandoPrendi comando = new ComandoPrendi(io);
 	    comando.setParametro("pinza");
 	    comando.esegui(partita);
 
