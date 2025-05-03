@@ -22,11 +22,10 @@ public class ComandoPosaTest {
 	private IO io;
 	
 	
-	private Stanza atrio;
+
 	Partita partita;
 	
-	private Attrezzo attrezzo;
-	
+
 	
 	@Before
 	public void setUp() {
