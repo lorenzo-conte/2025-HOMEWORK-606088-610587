@@ -11,7 +11,7 @@ public class ComandoGuarda implements Comando{
 	}
 	@Override
 	public void esegui(Partita partita) {
-		io.mostraMessaggio("\nAttualmente ti trovi in: ");
+		io.mostraMessaggio("Attualmente ti trovi in: ");
 	
 		io.mostraMessaggio(partita.getLabirinto().getStanzaCorrente().getDescrizione());
 		
